@@ -30,6 +30,8 @@
     <script src="https://unpkg.com/vue-router@2.7.0/dist/vue-router.min.js"></script>
     <script type="module">           
         import routerv from "./js/router.js";
+        import userInfo from './js/user_info.js'
+
         new Vue({
             router: routerv,
             data: {
@@ -53,7 +55,8 @@
                     localStorage.setItem("classes",JSON.stringify(this.classes));
                 }
             },            
-            created() {
+            created() {                                                            
+                Object.assign(userInfo, JSON.parse(localStorage.getItem("user_info")));
                 this.isLogin = sessionStorage.getItem("isLogin");
                 this.classes = JSON.parse(localStorage.getItem("classes"));
             }

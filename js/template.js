@@ -42,7 +42,39 @@ const loginpage = {
 
 // ###################### 회원가입 페이지 ######################
 const registerpage = {
-    
+    template: `
+    <div>
+        <h1>회원가입</h1>
+        <div class="login-wrap">
+            <div class="login-item">
+                <label for="id">ID</label>
+                <input id="id" type="text" v-model="new_id" @keyup.enter="add_user">            
+            </div>
+            <div class="login-item">
+                <label for="pw">PW</label>
+                <input id="pw" type="password" v-model="new_pw" @keyup.enter="add_user">
+            </div>            
+            <div class="login-btn-wrap">
+                <button @click="add_user">Submit</button>
+            </div>
+        </div>
+    </div>`,
+    data: function() {
+        return {
+            new_id: '',
+            new_pw: ''
+        }
+    },
+    methods: {
+        add_user() { 
+            if(userInfo[this.new_id]) return alert("이미 존재하는 아이디입니다.");        
+            userInfo[this.new_id] = {
+                'password' : this.new_pw
+            }
+            localStorage.setItem("user_info", JSON.stringify(userInfo));
+            this.$router.push('login');            
+        }
+    }
 }
 
 

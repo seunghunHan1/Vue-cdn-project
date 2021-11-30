@@ -1,5 +1,1 @@
-export default {
-    'admin' : {
-        'password': '1234'
-    }
-}
+export default {}
