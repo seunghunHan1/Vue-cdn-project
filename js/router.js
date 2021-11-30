@@ -1,4 +1,4 @@
-import { firstpage, loginpage, registerpage, classlistpage, classaddpage } from "./template.js";
+import { loginpage, registerpage, classlistpage, classaddpage } from "./template.js";
 
 function login_check(to, from, next) {
     if(!sessionStorage.getItem("isLogin")) return next('/login');

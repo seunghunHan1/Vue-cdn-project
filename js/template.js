@@ -1,13 +1,7 @@
-export { firstpage, loginpage, registerpage, classlistpage, classaddpage };
+export { loginpage, registerpage, classlistpage, classaddpage };
 
-const firstpage = {
-    template: `
-    <div>
-        메인페이지
-    </div>`,
 
-}
-
+// ###################### 로그인 페이지 ######################
 const loginpage = {
     template: `
     <div>
@@ -49,10 +43,14 @@ const loginpage = {
     }
 }
 
+
+// ###################### 회원가입 페이지 ######################
 const registerpage = {
     
 }
 
+
+// ###################### 강의목록 페이지 ######################
 const classlistpage = {
     template: `
     <div style="width: 600px">        
@@ -126,6 +124,8 @@ const classlistpage = {
     }
 }
 
+
+// ###################### 강의등록 페이지 ######################
 const classaddpage = {
     template: `
     <div>
