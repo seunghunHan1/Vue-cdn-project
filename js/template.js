@@ -1,4 +1,5 @@
 export { loginpage, registerpage, classlistpage, classaddpage };
+import userInfo from './user_info.js'
 
 
 // ###################### 로그인 페이지 ######################
@@ -25,20 +26,15 @@ const loginpage = {
             inputUserInfo: {
                 id: '',
                 pw: ''
-            },
-            userInfo: {
-                id: 'admin',
-                pw: '1234'
             }
         }
     },
     methods: {
-        pcheck_login() {                
-            if(this.inputUserInfo.id === this.userInfo.id && this.inputUserInfo.pw === this.userInfo.pw) {
-                this.$emit('checklogin', true);
-            }else {
-                alert('로그인 실패')
-            }
+        pcheck_login() {       
+            const user_info = userInfo[this.inputUserInfo.id];
+            if(!user_info) return alert("해당 아이디가 존재하지 않습니다.");
+            if(user_info.password !== this.inputUserInfo.pw) return alert("패스워드가 일치하지 않습니다.");
+            this.$emit('checklogin', true);
         }
     }
 }
