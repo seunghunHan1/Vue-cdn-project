@@ -4,7 +4,6 @@ function login_check(to, from, next) {
     if(!sessionStorage.getItem("isLogin")) return next('/login');
     next();
 }
-
 export default new VueRouter({
     routes: [
         {
