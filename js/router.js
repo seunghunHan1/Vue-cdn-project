@@ -21,7 +21,7 @@ export default new VueRouter({
         {
             path: '/register',
             component: registerpage,
-            beforeEnter: (to, from, next) => {            
+            beforeEnter: (to, from, next) => {             
                 if(sessionStorage.getItem("isLogin")) return next('/classlist');                
                 next();
             }
